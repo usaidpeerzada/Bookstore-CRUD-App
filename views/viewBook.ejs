@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+
+<div class="row form-header">
+    <div class="col">
+      <h1 class="">DOWNTOWN BOOKSTORE</h1>
+    </div>
+    <div style="text-align: right;" class="col">
+      <button  style="margin-right: 15px;" class="btn btn-default btn-lg "><a href="/add-book">ADD NEW BOOK</a></button>
+        <button  style="margin-right: 15px;" class="btn btn-warning btn-lg "><a href="/book-list">BOOK LIST</a></button>
+        <a class="btn btn-primary btn-lg"  href="/">HOME</a>
+    </div>
+    
+  </div>
+<hr>
+  <div class="col-md-9">
+    <h2  class="form-group ">Book View</h2>
+
+<div class="jumbotron">
+  <p style="font-size:larger; font-style: oblique; text-decoration: underline;">Title: </p> <p><%= title %></p>
+  <p style="font-size:larger; font-style: oblique; text-decoration: underline;">Author(s):</p> <p><%= author %></p>
+  <p style="font-size:larger; font-style: oblique; text-decoration: underline;">ISBN: </p> <p><%= isbn %></p>
+  <p style="font-size:larger; font-style: oblique; text-decoration: underline;">Language: </p>  <p><%= lang %></p>
+  <p style="font-size:larger; font-style: oblique; text-decoration: underline;">Genre(s):  </p> <p><%= genre %></p>
+  <p style="font-size:larger; font-style: oblique; text-decoration: underline;">Price(Rs.): </p> <p><%= price %></p>
+  <p style="font-size:larger; font-style: oblique; text-decoration: underline;">Published Year:  </p> <p><%= puby %></p>
+  <p style="font-size:larger; font-style: oblique; text-decoration: underline;">Publisher: </p>  <p><%= publ %></p>
+  <p style="font-size:larger; font-style: oblique; text-decoration: underline;">Description:</p> <p><%= desc %></p>
+  
+
+</div>
+ 
+
+ 
+     <button style="margin: 40px 10px;" 
+     onclick="window.location.href = '/edit-book/<%= id %>';"
+      class="btn btn-warning btn-lg">EDIT BOOK
+      </button>
+
+      <button style="margin: 40px 10px;" 
+      onclick="del()"
+         class="btn btn-danger btn-lg">DELETE BOOK
+        </button>
+
+    <button style="margin: 40px 10px;"  hidden
+    onclick="window.location.href = '/delete-book/<%= id %>';"
+       id="del-b">
+      </button>
+  </div>
+</div>
+
+<script>
+  function del() {
+    var r = confirm("Press OK to confirm Deletion!");
+    if (r == true) {
+      document.getElementById("del-b").click();
+    } 
+  }
+  </script>
+<%- include('partials/footer') %>

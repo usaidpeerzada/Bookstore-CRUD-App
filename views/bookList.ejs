@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<div class="row form-header">
+    <div class="col">
+      <h1 class="">DOWNTOWN BOOKSTORE</h1>
+    </div>
+    <div style="text-align: right;" class="col">
+      <button  style="margin-right: 15px;" class="btn btn-success btn-lg "><a href="/add-book">ADD A BOOK</a></button>
+      <a class="btn btn-outline-success btn-lg"  href="/">HOME</a>
+    </div>
+
+</div>
+<hr>
+
+<div class="jumbotron col-md-12">
+  <h2  class="form-group ">Book List</h2>
+
+  <div class= "navbar  sticky-top navbar-dark bg-success row" style="color: antiquewhite;">
+    <div class="col-sm-1">S.no.</div>
+    <div class="col-sm-3">Book Title</div>
+    <div class="col-sm-3">Author(s)</div>
+    <div class="col-sm-2">Publisher</div>
+    <div class="col-sm-3">ISBN</div>
+  </div>
+
+  <%  books.forEach(function(book,index){ %>
+    <div class= "navbar bg-light row" style="color: black;">
+
+      <div class="col-sm-1"><%=++index%></div>
+      <div class="col-sm-3"><%=book.title%></div>
+      <div class="col-sm-3"><%=book.author%></div>
+      <div class="col-sm-2"><%=book.publisher%></div>
+      <div class="col-sm-2"><%=book.isbn%> </div>
+      <div class="col-sm-1"><a class="btn btn-outline-success" href="/view-book/<%=book._id%>">view book</a></div>
+    </div>
+    <% }) %>
+</div>
+
+
+<%- include('partials/footer') %>
